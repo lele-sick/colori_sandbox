@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interazione tra colori</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="app">
+
+    <!-- TITOLO -->
+    <header class="header">
+        <h1>Interazione tra colori</h1>
+    </header>
+
+    <!-- SIMULAZIONE -->
+    <section class="simulation-container">
+        <canvas id="simulation"></canvas>
+    </section>
+
+    <!-- CONTROLLI -->
+    <section class="controls">
+
+        <div class="control">
+            <label for="gravity">Gravità: <span id="gravityValue">0</span></label>
+            <input id="gravity" type="range" min="0" max="150" value="0">
+        </div>
+
+        <div class="control">
+            <label for="bounce">Rimbalzo: <span id="bounceValue">0.75</span></label>
+            <input id="bounce" type="range" min="0" max="1" step="0.01" value="0.75">
+        </div>
+
+        <div class="control">
+            <label for="radius">Raggio: <span id="radiusValue">270</span></label>
+            <input id="radius" type="range" min="120" max="1000" value="270">
+        </div>
+
+        <div class="control">
+            <label for="colorForce">Potenza interazione: <span id="colorForceValue">400</span></label>
+            <input id="colorForce" type="range" min="0" max="800" step="5" value="400">
+        </div>
+
+        <div class="control">
+            <label for="ballCount">Palline: <span id="ballCountValue">100</span></label>
+            <input id="ballCount" type="range" min="10" max="1300" step="10" value="100">
+        </div>
+
+        <div class="control">
+            <label for="ballSize">Dimensione palline: <span id="ballSizeValue">4</span></label>
+            <input id="ballSize" type="range" min="2" max="12" step="1" value="4">
+        </div>
+
+        <div class="control">
+            <label for="colorCount">Colori: <span id="colorCountValue">16</span></label>
+            <input id="colorCount" type="range" min="1" max="34" step="1" value="16">
+        </div>
+
+        <div class="switch-container">
+            <label class="switch">
+                <input id="colorInteraction" type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+            <span id="interactionLabel">Interazione colori: ON</span>
+            <button id="resetButton" type="button">Reset</button>
+            <button id="circleButton" type="button">Cerchio: ON</button>
+            <button id="gyroButton" type="button" hidden>Giroscopio: OFF</button>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        Colori vicini = attrazione | Colori opposti = repulsione | <strong>R</strong> o pulsante Reset | Tasto destro = attira | Tasto sinistro = respingi
+    </footer>
+
+</main>
+
+<script src="simulation.js"></script>
+
+</body>
+</html>
