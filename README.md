@@ -2,7 +2,7 @@
 
 🇮🇹 [Italiano](#-italiano) · 🇬🇧 [English](#-english)
 
-**Demo:** https://lele-sick.github.io/color-balls/ *(sostituisci con il tuo link / replace with your link)*
+**Demo:** https://lele-sick.github.io/color-balls/
 
 ---
 
