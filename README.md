@@ -4,6 +4,11 @@
 
 **Demo:** https://lele-sick.github.io/color-balls/
 
+|  |  |
+| --- | --- |
+| ![Vista di default](./screenshots/desktop-default.png) | ![Ammassi di colore](./screenshots/desktop-clusters.png) |
+| ![Senza cerchio](./screenshots/desktop-no-circle.png) | ![Vista mobile](./screenshots/mobile.png) |
+
 ---
 
 ## 🇮🇹 Italiano
