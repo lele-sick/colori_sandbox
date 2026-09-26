@@ -2,7 +2,7 @@
 
 🇮🇹 [Italiano](#-italiano) · 🇬🇧 [English](#-english)
 
-**Demo:** https://lele-sick.github.io/color-balls/
+**Demo:** https://lele-sick.github.io/colori_sandbox/
 
 |  |  |
 | --- | --- |
