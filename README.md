@@ -17,7 +17,7 @@ Una simulazione fisica in tempo reale, scritta in JavaScript puro (nessuna dipen
 
 ### Caratteristiche
 
-- Fino a **1300 palline**, con collisioni, gravità e rimbalzo regolabili
+- Fino a **3000 palline**, con collisioni, gravità e rimbalzo regolabili
 - Da **1 a 34 colori**, equidistanti sulla ruota cromatica
 - Interazione tra colori: colori simili si attraggono, colori opposti si respingono
 - **Mouse:** tieni premuto il tasto destro per attirare tutte le palline, il sinistro per respingerle
@@ -34,7 +34,7 @@ Una simulazione fisica in tempo reale, scritta in JavaScript puro (nessuna dipen
 | Rimbalzo | 0 – 1 | Elasticità degli urti |
 | Raggio | 120 – max | Raggio del cerchio (max = spazio disponibile) |
 | Potenza interazione | 0 – 800 (step 5) | Forza di attrazione/repulsione tra colori |
-| Palline | 10 – 1300 (step 10) | Numero di palline (ricrea la simulazione) |
+| Palline | 10 – 3000 (step 10) | Numero di palline (ricrea la simulazione) |
 | Dimensione palline | 2 – 12 | Raggio delle palline |
 | Colori | 1 – 34 | Quanti colori diversi compaiono |
 | Interazione colori | ON / OFF | Attiva o disattiva le forze tra colori |
@@ -119,7 +119,7 @@ A real-time physics simulation written in plain JavaScript (no dependencies). Hu
 | Bounce (*Rimbalzo*) | 0 – 1 | Elasticity of impacts |
 | Radius (*Raggio*) | 120 – max | Circle radius (max = available space) |
 | Interaction strength (*Potenza interazione*) | 0 – 800 (step 5) | Attraction/repulsion force between colors |
-| Balls (*Palline*) | 10 – 1300 (step 10) | Number of balls (recreates the simulation) |
+| Balls (*Palline*) | 10 – 3000 (step 10) | Number of balls (recreates the simulation) |
 | Ball size (*Dimensione palline*) | 2 – 12 | Ball radius |
 | Colors (*Colori*) | 1 – 34 | How many different colors appear |
 | Color interaction (*Interazione colori*) | ON / OFF | Turns color forces on or off |
