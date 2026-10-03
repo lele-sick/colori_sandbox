@@ -2,6 +2,36 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #ebebeb;
+    --text: #1e1e1e;
+    --circle-bg: #fafafa;
+    --circle-border: #282828;
+    --footer-color: #555;
+    --accent: #286edc;
+    --accent-hover: #1f5bbb;
+    --accent-active: #184a99;
+    --switch-off: #999;
+    --switch-on: #28b45a;
+    --theme-btn-bg: rgba(0, 0, 0, 0.06);
+    --theme-btn-bg-hover: rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="dark"] {
+    --bg: #121212;
+    --text: #e8e8e8;
+    --circle-bg: #1c1c1c;
+    --circle-border: #e8e8e8;
+    --footer-color: #9a9a9a;
+    --accent: #3b82f6;
+    --accent-hover: #5b96f5;
+    --accent-active: #2f6bd1;
+    --switch-off: #555;
+    --switch-on: #2fcf6e;
+    --theme-btn-bg: rgba(255, 255, 255, 0.08);
+    --theme-btn-bg-hover: rgba(255, 255, 255, 0.15);
+}
+
 html,
 body {
     margin: 0;
@@ -11,9 +41,11 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    background: #ebebeb;
-    color: #1e1e1e;
+    background: var(--bg);
+    color: var(--text);
     overflow: hidden;
+
+    transition: background 0.2s, color 0.2s;
 }
 
 .app {
@@ -25,6 +57,8 @@ body {
 }
 
 .header {
+    position: relative;
+
     height: 44px;
 
     display: flex;
@@ -39,6 +73,37 @@ body {
 
     font-size: 18px;
     font-weight: 500;
+}
+
+#themeButton {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    line-height: 1;
+
+    color: var(--text);
+    background: var(--theme-btn-bg);
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+    touch-action: manipulation;
+
+    transition: background 0.2s;
+}
+
+#themeButton:hover {
+    background: var(--theme-btn-bg-hover);
 }
 
 .simulation-container {
@@ -86,7 +151,7 @@ body {
 .control input[type="range"] {
     width: 100%;
     margin: 0;
-    accent-color: #286edc;
+    accent-color: var(--accent);
 }
 
 .switch-container {
@@ -119,7 +184,7 @@ body {
     position: absolute;
     inset: 0;
 
-    background: #999;
+    background: var(--switch-off);
     border-radius: 28px;
     cursor: pointer;
     transition: 0.2s;
@@ -142,7 +207,7 @@ body {
 }
 
 .switch input:checked + .slider {
-    background: #28b45a;
+    background: var(--switch-on);
 }
 
 .switch input:checked + .slider::before {
@@ -158,35 +223,37 @@ body {
     font-family: inherit;
     color: #fff;
 
-    background: #286edc;
+    background: var(--accent);
     border: none;
     border-radius: 6px;
 
     cursor: pointer;
     touch-action: manipulation;
+
+    transition: background 0.2s;
 }
 
 #resetButton:hover,
 #circleButton:hover,
 #gyroButton:hover {
-    background: #1f5bbb;
+    background: var(--accent-hover);
 }
 
 #resetButton:active,
 #circleButton:active,
 #gyroButton:active {
-    background: #184a99;
+    background: var(--accent-active);
 }
 
 #gyroButton.active {
-    background: #28b45a;
+    background: var(--switch-on);
 }
 
 footer {
     text-align: center;
 
     font-size: 12px;
-    color: #555;
+    color: var(--footer-color);
 
     padding: 4px 10px 8px;
 

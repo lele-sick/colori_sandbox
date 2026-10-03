@@ -38,6 +38,7 @@ const colorCountSlider = document.getElementById("colorCount");
 const colorInteraction = document.getElementById("colorInteraction");
 const circleButton = document.getElementById("circleButton");
 const gyroButton = document.getElementById("gyroButton");
+const themeButton = document.getElementById("themeButton");
 
 const gravityValue = document.getElementById("gravityValue");
 const bounceValue = document.getElementById("bounceValue");
@@ -77,6 +78,10 @@ let gravityDirY = 1;
 
 let gyroEnabled = false;
 let gyroReceived = false;
+
+// Colori del cerchio: seguono il tema chiaro/scuro
+let circleFillColor = "#fafafa";
+let circleStrokeColor = "#282828";
 
 let lastTime = performance.now();
 
@@ -690,10 +695,10 @@ function draw() {
 
         ctx.arc(centerX, centerY, currentRadius, 0, Math.PI * 2);
 
-        ctx.fillStyle = "#fafafa";
+        ctx.fillStyle = circleFillColor;
         ctx.fill();
 
-        ctx.strokeStyle = "#282828";
+        ctx.strokeStyle = circleStrokeColor;
         ctx.lineWidth = 5;
         ctx.stroke();
     }
@@ -1177,6 +1182,73 @@ if (
 ) {
     gyroButton.hidden = false;
 }
+
+
+// ============================================================
+// TEMA CHIARO / SCURO
+// ============================================================
+
+function readCircleColorsFromTheme() {
+
+    const styles = getComputedStyle(document.documentElement);
+
+    circleFillColor = styles.getPropertyValue("--circle-bg").trim();
+    circleStrokeColor = styles.getPropertyValue("--circle-border").trim();
+}
+
+
+function applyTheme(theme) {
+
+    document.documentElement.dataset.theme = theme;
+
+    themeButton.textContent = theme === "dark" ? "☀️" : "🌙";
+
+    themeButton.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Passa al tema chiaro" : "Passa al tema scuro"
+    );
+
+    try {
+        localStorage.setItem("theme", theme);
+    } catch (error) {
+        // Storage non disponibile (es. navigazione privata): poco male,
+        // il tema semplicemente non verrà ricordato
+    }
+
+    readCircleColorsFromTheme();
+}
+
+
+const darkMediaQuery =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+
+let savedTheme = null;
+
+try {
+    savedTheme = localStorage.getItem("theme");
+} catch (error) {
+    // Storage non disponibile
+}
+
+applyTheme(
+    savedTheme || (darkMediaQuery && darkMediaQuery.matches ? "dark" : "light")
+);
+
+// Se l'utente non ha mai scelto esplicitamente, segue il tema del sistema
+if (!savedTheme && darkMediaQuery) {
+
+    darkMediaQuery.addEventListener("change", (event) => {
+        applyTheme(event.matches ? "dark" : "light");
+    });
+}
+
+themeButton.addEventListener("click", () => {
+
+    const next =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+    applyTheme(next);
+});
 
 
 // ============================================================
